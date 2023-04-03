@@ -1,0 +1,38 @@
+<table mat-table matSort [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>
+      <core-table-filter (change)="filter('id', $event)">
+        <div mat-sort-header>ID</div>
+      </core-table-filter>
+    </th>
+    <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>
+      <core-table-filter (change)="filter('name', $event)">
+        <div mat-sort-header>Name</div>
+      </core-table-filter>
+    </th>
+    <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>
+      <core-table-menu (clear)="clearFilters()"></core-table-menu>
+    </th>
+    <td mat-cell *matCellDef="let row"></td>
+  </ng-container>
+  <ng-container matColumnDef="progress">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      [attr.colspan]="displayedColumns.length"
+    >
+      <!-- <mat-progress-bar
+        [class.show]="pending"
+        mode="indeterminate"
+      ></mat-progress-bar> -->
+    </th>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

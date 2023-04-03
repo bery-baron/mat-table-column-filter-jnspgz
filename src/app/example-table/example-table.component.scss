@@ -1,0 +1,17 @@
+@import '../core-table/table';
+
+:host {
+  display: block;
+}
+
+@include base;
+@include progress;
+
+cdk-virtual-scroll-viewport {
+  height: 50vh;
+}
+
+// this makes the <th>s respond to --offset
+th.mat-header-cell {
+  transform: translateY(var(--offset));
+}
